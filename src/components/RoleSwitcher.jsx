@@ -18,8 +18,14 @@ const RoleSwitcher = ({ onRoleChange, activeRole }) => {
   ];
   
   const handleRoleChange = (role) => {
-    setActiveRoleState(role);
-    onRoleChange(role);
+    // Only update if the role is different
+    if (activeRoleState !== role) {
+      // Small delay to ensure any animations have time to complete
+      setTimeout(() => {
+        setActiveRoleState(role);
+        onRoleChange(role);
+      }, 50);
+    }
   };
   
   return (

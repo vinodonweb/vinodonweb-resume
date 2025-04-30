@@ -16,24 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide default cursor when custom cursor is active */
-body {
-  cursor: none !important;
-}
-
-/* Make sure links and buttons still show the pointer cursor shape */
-a, button, input[type="button"], input[type="submit"], input[type="reset"], 
-[role="button"], [tabindex="0"] {
-  cursor: none !important;
-}
-
-/* For mobile where custom cursor won't work */
-@media (max-width: 768px) {
-  body, a, button, input[type="button"], input[type="submit"], 
-  input[type="reset"], [role="button"], [tabindex="0"] {
-    cursor: auto !important;
-  }
-}
 
 a {
   font-weight: 500;

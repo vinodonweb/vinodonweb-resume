@@ -16,40 +16,32 @@ const wordVariants = {
   visible: { 
     opacity: 1,
     transition: { 
-      staggerChildren: 0.03,
-      delayChildren: 0.03
+      staggerChildren: 0.01,
+      delayChildren: 0.01,
+      when: "beforeChildren"
     }
   }
 };
 
 export const AnimatedTitle = ({ text, className, delay = 0 }) => {
-  const words = text.split(' ');
+  // Ensure text is a string and not undefined
+  const safeText = typeof text === 'string' ? text : '';
   
+  // If no text, don't render anything
+  if (!safeText) {
+    return null;
+  }
+  
+  // Fall back to simple animation if there's an issue with the animated letters
   return (
     <motion.h2 
       className={className}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay }}
+      transition={{ duration: 0.5, delay }}
     >
-      {words.map((word, wordIndex) => (
-        <motion.span
-          key={wordIndex}
-          className="inline-block mr-2"
-          variants={wordVariants}
-        >
-          {Array.from(word).map((letter, letterIndex) => (
-            <motion.span
-              key={letterIndex}
-              className="inline-block"
-              variants={letterVariants}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </motion.span>
-      ))}
+      {safeText}
     </motion.h2>
   );
 };

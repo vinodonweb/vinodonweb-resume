@@ -7,7 +7,6 @@ import AnimatedSection, { AnimatedItem } from './components/AnimatedSection'
 import { AnimatedTitle, AnimatedHeading, AnimatedParagraph } from './components/AnimatedText'
 import AnimatedIcon, { FloatingIcon, PulsingIcon } from './components/AnimatedIcon'
 import AnimatedCard, { AnimatedProject } from './components/AnimatedCard'
-import SplashCursor from './components/SplashCursor'
 import { motion } from 'framer-motion'
 import RainbowButton from './components/RainbowButton'
 import ImageCarousel from './components/ImageCarousel'
@@ -19,6 +18,7 @@ import {sound1, sound2, sound3, sound4} from './assets/images/soundSaga/index'
 import {weather1, weather2, weather3, weather4} from './assets/images/wheather/index'
 import {algo1, doodle1, doodle2, doodle3, doodle4, doodle5, doodle6} from './assets/images/ios/index'
 import {web1, web2, web3, web4, pm1, pm2, pm3} from './assets/images/web/index'
+import irlLogo from './assets/images/IRL.png';
 
 function App() {
   const [selectedRole, setSelectedRole] = useState('Full-Stack Developer');
@@ -110,7 +110,7 @@ function App() {
             "Integrated MongoDB for dynamic content management and efficient data retrieval.",
             "Deployed on Digital Ocean for reliable hosting with automated scaling capabilities."
           ],
-          images: [web1, web2, web3, web4],
+          images: [irlLogo],
           skills: ['Figma', 'React js', 'MongoDB', 'Digital Ocean'],
           githubLink: '#',
           demoLink: 'https://irl.depaul.edu/'
@@ -332,8 +332,6 @@ function App() {
 
   return (
     <div className="bg-[#121212] text-white min-h-screen">
-      {/* Splash Cursor */}
-      <SplashCursor color="#3b82f6" />
       
       {/* Scroll animation handler */}
       <ScrollObserver />
@@ -568,11 +566,12 @@ function App() {
                     <Github className="w-5 h-5 mr-2" /> 
                     Code
                   </motion.a>
-                  <motion.a 
+                  <motion.a
+                   
                     href={project.demoLink} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 hover:text-blue-400 flex items-center"
+                    className={`${project.demoLink.includes('#') ? 'd-none hidden' : ''} text-blue-500 hover:text-blue-400 flex items-center`}
                     whileHover={{ scale: 1.05, x: 3 }}
                     whileTap={{ scale: 0.95 }}
                   >
