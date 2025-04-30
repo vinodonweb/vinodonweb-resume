@@ -27,6 +27,7 @@ function App() {
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const roleParam = queryParams.get('type');
+
     
     if (roleParam) {
       const formattedRole = roleParam
@@ -115,19 +116,6 @@ function App() {
           githubLink: '#',
           demoLink: 'https://irl.depaul.edu/'
         },
-        // {
-        //   title: 'Project Management Tool',
-        //   description: [
-        //     "A full-stack project management application for team collaboration and task tracking.",
-        //     "Features include real-time updates, task assignment, and progress tracking.",
-        //     "Built with React and Redux on the frontend with Express backend for API services.",
-        //     "Implemented Socket.io for real-time communication between team members."
-        //   ],
-        //   images: [pm1, pm2, pm3],
-        //   skills: ['React', 'Redux', 'Express', 'Socket.io'],
-        //   githubLink: '#',
-        //   demoLink: '#'
-        // }
       ],
       certifications: [
         {
@@ -192,43 +180,20 @@ function App() {
           demoLink: '#'
         }
       ],
-      // certifications: [
-      //   {
-      //     title: 'iOS App Development with Swift',
-      //     issuer: 'Apple',
-      //     date: 'June 2021',
-      //     description: 'Specialized certification in iOS app development using Swift and SwiftUI.'
-      //   },
-      //   {
-      //     title: 'Mobile UI/UX Design',
-      //     issuer: 'Interaction Design Foundation',
-      //     date: 'April 2020',
-      //     description: 'Focused on creating effective and intuitive mobile user interfaces.'
-      //   }
-      // ]
+      certifications: [
+        {
+          title: 'AWS Certified Solutions Architect',
+          issuer: 'Amazon Web Services',
+          date: 'Expecting by June 2025',
+          description: 'Validates the ability to design and deploy scalable systems on AWS.'
+        },
+      ]
     },
     'Android Developer': {
       title: 'Android Developer',
       subtitle: 'Specializing in Kotlin and Jetpack Compose',
       description: 'I develop innovative Android applications using Kotlin and modern Android development tools.',
-      // experiences: [
-      //   {
-      //     title: 'Android Developer',
-      //     company: 'Mobile Solutions Co.',
-      //     period: '2019 - Present',
-      //     description: 'Created Android apps using Kotlin and Jetpack Compose. Implemented material design principles and modern architecture patterns.',
-      //     skills: ['Kotlin', 'Jetpack Compose', 'Android SDK', 'MVVM'],
-      //     icon: 'server'
-      //   },
-      //   {
-      //     title: 'Junior Mobile Developer',
-      //     company: 'App Factory',
-      //     period: '2017 - 2019',
-      //     description: 'Assisted in the development of Android applications and learned mobile development best practices.',
-      //     skills: ['Java', 'Kotlin', 'Android XML'],
-      //     icon: 'server'
-      //   }
-      // ],
+      experiences: [],
       projects: [
         {
           title: 'Follow-Me ',
@@ -669,35 +634,48 @@ function App() {
           className="text-3xl md:text-4xl font-bold mb-16 text-center"
         />
         <div className="max-w-4xl mx-auto">
-          {currentRoleData.certifications && currentRoleData.certifications.map((cert, index) => (
-            <AnimatedCard key={index} delay={index * 0.2} className="mb-8 bg-[#1a1a1a] p-6 rounded-lg shadow-lg border border-gray-800">
-              <div className="flex items-start md:items-center flex-col md:flex-row gap-4 md:gap-0">
-                <PulsingIcon icon={Award} color="text-blue-500 w-8 h-8" />
-                <div className="md:ml-6">
-                  <AnimatedHeading tag="h3" text={cert.title} className="text-xl font-semibold" delay={0.1} />
-                  <AnimatedHeading tag="p" text={`${cert.issuer} • ${cert.date}`} className="text-blue-500" delay={0.2} />
-                  {Array.isArray(cert.description) ? (
-                    <div className="text-gray-300 mt-2 space-y-2">
-                      {cert.description.map((paragraph, i) => (
-                        <motion.p 
-                          key={i}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + i * 0.1 }}
-                          className="text-sm"
-                        >
-                          {paragraph}
-                        </motion.p>
-                      ))}
-                    </div>
-                  ) : (
-                    <AnimatedParagraph text={cert.description} className="text-gray-300 mt-2" delay={0.3} />
-                  )}
+          {currentRoleData.certifications && currentRoleData.certifications.length > 0 ? (
+            currentRoleData.certifications.map((cert, index) => (
+              <AnimatedCard key={index} delay={index * 0.2} className="mb-8 bg-[#1a1a1a] p-6 rounded-lg shadow-lg border border-gray-800">
+                <div className="flex items-start md:items-center flex-col md:flex-row gap-4 md:gap-0">
+                  <PulsingIcon icon={Award} color="text-blue-500 w-8 h-8" />
+                  <div className="md:ml-6">
+                    <AnimatedHeading tag="h3" text={cert.title} className="text-xl font-semibold" delay={0.1} />
+                    <AnimatedHeading tag="p" text={`${cert.issuer} • ${cert.date}`} className="text-blue-500" delay={0.2} />
+                    {Array.isArray(cert.description) ? (
+                      <div className="text-gray-300 mt-2 space-y-2">
+                        {cert.description.map((paragraph, i) => (
+                          <motion.p 
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 + i * 0.1 }}
+                            className="text-sm"
+                          >
+                            {paragraph}
+                          </motion.p>
+                        ))}
+                      </div>
+                    ) : (
+                      <AnimatedParagraph text={cert.description} className="text-gray-300 mt-2" delay={0.3} />
+                    )}
+                  </div>
                 </div>
-              </div>
-            </AnimatedCard>
-          ))}
+              </AnimatedCard>
+            ))
+          ) : (
+            <div className="text-center py-12">
+              <motion.p 
+                className="text-gray-400 text-lg"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                No certification data is available for {currentRoleData.title}.
+              </motion.p>
+            </div>
+          )}
         </div>
       </AnimatedSection>
 
