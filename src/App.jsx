@@ -17,8 +17,8 @@ import {news1, news2, news3, news4} from './assets/images/news/index'
 import {sound1, sound2, sound3, sound4} from './assets/images/soundSaga/index'
 import {weather1, weather2, weather3, weather4} from './assets/images/wheather/index'
 import {algo1, doodle1, doodle2, doodle3, doodle4, doodle5, doodle6} from './assets/images/ios/index'
-import {web1, web2, web3, web4, pm1, pm2, pm3} from './assets/images/web/index'
 import irlLogo from './assets/images/IRL.png';
+import {IRlTodo1, IRlTodo2, IRlTodo3, IRlTodo4, IRlTodo5, IRlTodo6} from './assets/images/IRLTodo/Index'
 
 function App() {
   const [selectedRole, setSelectedRole] = useState('Full-Stack Developer');
@@ -115,6 +115,21 @@ function App() {
           skills: ['Figma', 'React js', 'MongoDB', 'Digital Ocean'],
           githubLink: '#',
           demoLink: 'https://irl.depaul.edu/'
+        },
+
+        {
+          title: 'In‑House Task Assignment Web App | Graduate Assistant, DePaul University – IRL Lab',
+          description: [
+            "Designed and deployed a full‑stack task‑assignment platform (React, ShadCN, Tailwind CSS, Node.js, Express, Docker) that replaced Basecamp and saves ≈ $200 per month in SaaS fees",
+            "Implemented secure REST APIs with JWT‑based authentication and bcrypt hashing; enforced role‑based access control (Admin / Employee) to protect sensitive task data.",
+            "Integrated the When‑I‑Work API to synchronize employee rosters, eliminating manual data entry and ensuring real‑time accuracy.",
+            "Built an intuitive admin dashboard enabling task creation, assignment, status updates, and comment threads; employees receive live updates and can update progress in a click.",
+            "Orchestrated CI/CD pipelines (GitHub Actions ➜ Docker) and deployed to DigitalOcean behind a load balancer, adding an extra security layer and achieving >99.9 % uptime.",
+          ],
+          images: [IRlTodo1, IRlTodo2, IRlTodo3, IRlTodo4, IRlTodo5, IRlTodo6],
+          skills: ['Figma', 'React js', 'MongoDB', 'Digital Ocean', 'Docker', 'Load Balancing', 'CI/CD', 'Express', 'Node.js', 'ShadCN', 'Tailwind CSS'],
+          githubLink: '#',
+          demoLink: 'https://internal.irl.depaul.edu/'
         },
       ],
       certifications: [
