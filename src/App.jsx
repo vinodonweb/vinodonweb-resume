@@ -386,7 +386,6 @@ function App() {
             >
               <RainbowButton
                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-                className="text-white bg-blue-600 border-transparent hover:bg-blue-700"
               >
                 Get in Touch
               </RainbowButton>
@@ -485,7 +484,7 @@ function App() {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {currentRoleData.projects.map((project, index) => (
-            <AnimatedProject key={index} delay={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg border border-gray-800 hover:border-blue-600 transition-colors">
+            <AnimatedProject key={index} delay={index} className="bg-[#1a1a1a]  rounded-lg overflow-hidden shadow-lg border border-gray-800 hover:border-blue-600 transition-colors">
               {project.images ? (
                 <ImageCarousel images={project.images} />
               ) : (
@@ -732,7 +731,7 @@ function App() {
               />
               <RainbowButton
                 onClick={() => window.location.href = 'mailto:work.vinodsharma23@gmail.com'}
-                className="block w-full text-white bg-blue-600 border-transparent hover:bg-blue-700"
+                className="block w-full"
               >
                 Send Email
               </RainbowButton>

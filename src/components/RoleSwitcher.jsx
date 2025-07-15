@@ -37,7 +37,7 @@ const RoleSwitcher = ({ onRoleChange, activeRole }) => {
             onClick={() => handleRoleChange(role)}
             className={
               activeRoleState === role
-                ? 'text-white bg-blue-600 border-transparent hover:bg-blue-700'
+                ? 'text-blue-700 dark:text-white bg-blue-600 border-transparent hover:bg-blue-700'
                 : ''
             }
           >

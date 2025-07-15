@@ -61,14 +61,14 @@ const ImageCarousel = ({ images }) => {
         <>
           <button
             onClick={handlePrevious}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-white rounded-full p-1 hover:bg-black/80 transition-colors z-10"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-black dark:text-white rounded-full p-1 hover:bg-black/80 transition-colors z-10"
             aria-label="Previous image"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-white rounded-full p-1 hover:bg-black/80 transition-colors z-10"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-black dark:text-white rounded-full p-1 hover:bg-black/80 transition-colors z-10"
             aria-label="Next image"
           >
             <ChevronRight size={24} />
@@ -82,7 +82,7 @@ const ImageCarousel = ({ images }) => {
                   setCurrentIndex(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-white' : 'bg-white/50'
+                  index === currentIndex ? 'bg-black dark:bg-white' : 'bg-white/50'
                 }`}
                 aria-label={`Go to image ${index + 1}`}
               />
