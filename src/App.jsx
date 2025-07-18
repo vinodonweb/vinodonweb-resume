@@ -19,6 +19,8 @@ import { weather1, weather2, weather3, weather4 } from './assets/images/wheather
 import { algo1, doodle1, doodle2, doodle3, doodle4, doodle5, doodle6 } from './assets/images/ios/index'
 import irlLogo from './assets/images/IRL.png';
 import { IRlTodo1, IRlTodo2, IRlTodo3, IRlTodo4, IRlTodo5, IRlTodo6 } from './assets/images/IRLTodo/Index'
+import {break1, break2, break3, break4} from './assets/images/Break_reminder/index';
+
 
 function App() {
   const [selectedRole, setSelectedRole] = useState('Full-Stack Developer');
@@ -103,6 +105,20 @@ function App() {
         }
       ],
       projects: [
+        {
+          title: 'Break Reminder Chrome Extension',
+          description: [
+            "Developed a productivity Chrome extension that transforms boring break reminders into engaging experiences with jokes, quotes, facts, and exercise tips.",
+            "Built with React.js and Manifest V3 APIs, featuring background service workers for alarm management and content script injection for seamless user interactions.",
+            "Integrated multiple REST APIs (Official Joke API, ZenQuotes, UselessFacts API) with graceful fallback mechanisms ensuring 99.9% content delivery reliability.",
+            "Implemented Chrome storage API for user preferences and break tracking with customizable intervals and gamified progress counters.",
+            "Published as open-source project demonstrating modern web extension development practices and UX psychology principles."
+          ],
+          images: [break1, break2, break3, break4],
+          skills: ['React.js', 'JavaScript', 'Chrome APIs', 'Manifest V3', 'REST APIs', 'UX Design'],
+          githubLink: 'https://github.com/vinodonweb/break-reminder-extraction',
+          demoLink: 'https://chromewebstore.google.com/detail/break-reminder/imkkaclpdmkjoebdceipiokgnehkollk'
+        },
         {
           title: 'Depaul University IRL Website',
           description: [
