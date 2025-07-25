@@ -26,23 +26,25 @@ function App() {
   const [selectedRole, setSelectedRole] = useState('Full-Stack Developer');
 
   // Handle URL query parameter for role selection
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const roleParam = queryParams.get('type');
+ useEffect(() => {
+  const queryParams = new URLSearchParams(window.location.search);
+  const roleParam = queryParams.get('type');
 
-
-    if (roleParam) {
-      const formattedRole = roleParam
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-
-      // Only set if it's a valid role
-      if (['Full-Stack Developer', 'iOS Developer', 'Android Developer'].includes(formattedRole)) {
-        setSelectedRole(formattedRole);
-      }
+  if (roleParam) {
+    // Map URL parameters to exact role names
+    const roleMapping = {
+      'ios-developer': 'iOS Developer',
+      'full-stack-developer': 'Full-Stack Developer',
+      'android-developer': 'Android Developer'
+    };
+    
+    const matchedRole = roleMapping[roleParam.toLowerCase()];
+    
+    if (matchedRole) {
+      setSelectedRole(matchedRole);
     }
-  }, []);
+  }
+}, []);
 
   // Update URL when role changes
   const handleRoleChange = (role) => {
