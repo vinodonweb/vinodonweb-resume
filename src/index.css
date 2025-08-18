@@ -1,14 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0f0f0f;
+  
+  /* Custom color variables with warm yellowish tones */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1f1f1f;
+  --accent-primary: #f5c842;
+  --accent-secondary: #ffd700;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4aa;
+  --text-muted: #888888;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,14 +26,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Force dark theme always */
+
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--accent-primary);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--accent-secondary);
 }
 
 h1 {
@@ -89,6 +101,306 @@ button:focus-visible {
 
 .skill-item.is-visible {
   animation-play-state: running;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow Effect */
+.glow-effect {
+  filter: drop-shadow(0 0 10px var(--accent-primary));
+}
+
+/* Background Dots Pattern */
+.dots-pattern {
+  background-image: radial-gradient(circle, rgba(245, 200, 66, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Rainbow Button Styles */
+.rainbow-button {
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rainbow-button {
+    color: #f5c842 !important;
+  }
+}
+
+.rainbow-button:hover {
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rainbow-button:hover {
+    color: #ffd700 !important;
+  }
+}
+
+/* Modern Developer Styles */
+.code-font {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Terminal-like effect */
+.terminal {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(245, 200, 66, 0.1);
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-effect:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Matrix-like dots */
+.matrix-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, #f5c842 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, #f5c842 1px, transparent 1px);
+  background-size: 60px 60px, 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.1;
+}
+
+/* Neon glow border */
+.neon-border {
+  border: 2px solid #f5c842 !important;
+  box-shadow: 
+    0 0 5px #f5c842,
+    inset 0 0 5px #f5c842,
+    0 0 20px #f5c842,
+    inset 0 0 20px #f5c842 !important;
+  animation: neon-flicker 2s infinite alternate;
+}
+
+.neon-border:hover {
+  border-color: #ffd700 !important;
+  box-shadow: 
+    0 0 10px #ffd700,
+    inset 0 0 10px #ffd700,
+    0 0 40px #ffd700,
+    inset 0 0 40px #ffd700 !important;
+}
+
+@keyframes neon-flicker {
+  0% { box-shadow: 0 0 5px #f5c842, inset 0 0 5px #f5c842, 0 0 20px #f5c842, inset 0 0 20px #f5c842; }
+  100% { box-shadow: 0 0 10px #f5c842, inset 0 0 10px #f5c842, 0 0 40px #f5c842, inset 0 0 40px #f5c842; }
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #f5c842; }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #f5c842;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Hexagon pattern */
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f5c842' fill-opacity='0.05'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Scan lines effect */
+.scan-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(245, 200, 66, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  animation: scan 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 100%; }
+}
+
+/* Override any default blue focus/hover states */
+*:focus {
+  outline: 2px solid #f5c842 !important;
+  outline-offset: 2px;
+}
+
+*:focus-visible {
+  outline: 2px solid #f5c842 !important;
+  outline-offset: 2px;
+}
+
+/* Remove default button focus styles */
+button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #f5c842 !important;
+}
+
+/* Override any link focus styles */
+a:focus {
+  outline: 2px solid #f5c842 !important;
+  outline-offset: 2px;
+}
+
+/* Syntax Highlighting for Code Blocks */
+.syntax-keyword {
+  color: #ff79c6;
+}
+
+.syntax-string {
+  color: #f1fa8c;
+}
+
+.syntax-number {
+  color: #bd93f9;
+}
+
+.syntax-comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+.syntax-function {
+  color: #50fa7b;
+}
+
+.syntax-variable {
+  color: #8be9fd;
+}
+
+.syntax-operator {
+  color: #ff5555;
+}
+
+.syntax-property {
+  color: #f8f8f2;
+}
+
+/* Terminal and card hover effects */
+.terminal:hover {
+  border-color: #f5c842 !important;
+  box-shadow: 0 0 30px rgba(245, 200, 66, 0.3) !important;
+}
+
+/* Override any blue borders or focus states */
+.hover\:neon-border:hover {
+  border-color: #f5c842 !important;
+}
+
+/* Ensure all interactive elements use golden theme */
+*[class*="hover:"]:hover {
+  border-color: #f5c842 !important;
+}
+
+/* Override Tailwind default focus styles */
+*:focus-visible {
+  outline: 2px solid #f5c842 !important;
+  outline-offset: 2px;
+  border-color: #f5c842 !important;
+}
+
+/* Card hover states */
+.group:hover {
+  border-color: #f5c842 !important;
+}
+
+/* Theme Container */
+.theme-container {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  color: var(--text-primary);
+}
+
+/* Theme-aware text classes */
+.theme-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.theme-text-muted {
+  color: var(--text-muted) !important;
+}
+
+.theme-bg-primary {
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-bg-secondary {
+  background-color: var(--bg-secondary) !important;
+}
+
+.theme-bg-tertiary {
+  background-color: var(--bg-tertiary) !important;
 }
 
 @media (prefers-color-scheme: light) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RainbowButton from './RainbowButton';
 
 const RoleSwitcher = ({ onRoleChange, activeRole }) => {
-  const [activeRoleState, setActiveRoleState] = useState(activeRole || 'Full-Stack Developer');
+  const [activeRoleState, setActiveRoleState] = useState(activeRole || 'Software Engineer');
   
   // Update local state when prop changes
   useEffect(() => {
@@ -12,9 +12,7 @@ const RoleSwitcher = ({ onRoleChange, activeRole }) => {
   }, [activeRole]);
   
   const roles = [
-    'Full-Stack Developer',
-    'iOS Developer',
-    'Android Developer'
+    'Software Engineer'
   ];
   
   const handleRoleChange = (role) => {
@@ -28,25 +26,8 @@ const RoleSwitcher = ({ onRoleChange, activeRole }) => {
     }
   };
   
-  return (
-    <div className="fixed right-4 top-20 z-50 bg-[#1a1a1a] rounded-lg p-3 shadow-lg border border-gray-800">
-      <div className="flex flex-col space-y-2">
-        {roles.map((role) => (
-          <RainbowButton
-            key={role}
-            onClick={() => handleRoleChange(role)}
-            className={
-              activeRoleState === role
-                ? 'text-blue-700 dark:text-white bg-blue-600 border-transparent hover:bg-blue-700'
-                : ''
-            }
-          >
-            {role}
-          </RainbowButton>
-        ))}
-      </div>
-    </div>
-  );
+  // Hide role switcher since we only have one role
+  return null;
 };
 
 export default RoleSwitcher; 

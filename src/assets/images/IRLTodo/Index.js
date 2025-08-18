@@ -1,6 +1,0 @@
-export {default as IRlTodo1} from './image1.png'
-export {default as IRlTodo2} from './image2.png'
-export {default as IRlTodo3} from './image3.png'
-export {default as IRlTodo4} from './image4.png'
-export {default as IRlTodo5} from './image5.png'
-export {default as IRlTodo6} from './image6.png'

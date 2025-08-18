@@ -13,7 +13,7 @@ const RainbowButton = ({
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`relative px-6 py-3 rounded-md text-black text-2xl dark:text-blue-500 bg-blue-600 dark:bg-transparent border border-blue-600 hover:bg-blue-700 dark:hover:bg-blue-900/20 transition-colors font-medium ${className}`}
+      className={`relative px-6 py-3 rounded-md rainbow-button bg-[#f5c842] dark:bg-transparent border border-[#f5c842] hover:bg-[#ffd700] dark:hover:bg-[#f5c842]/20 transition-colors font-medium ${className}`}
       onClick={onClick}
       disabled={disabled}
       type={type}
