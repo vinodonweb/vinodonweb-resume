@@ -90,7 +90,7 @@ function App() {
         title: 'Full Stack Developer',
           company: 'Innomatic Research Lab',
         period: 'Feb 2023 - June 2023',
-        type: 'On-Campus',
+        type: 'Internship',
           description: [
           `Engineered full-stack applications using MERN stack architecture`,
           `Optimized codebase performance leading to efficient application processes`,

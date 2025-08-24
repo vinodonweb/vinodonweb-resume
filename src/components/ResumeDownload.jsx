@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText, Eye, Printer } from 'lucide-react';
+import { Download, FileText, Eye, Printer, CloudDownload } from 'lucide-react';
 
 const ResumeDownload = () => {
   const [isHovering, setIsHovering] = useState(false);
