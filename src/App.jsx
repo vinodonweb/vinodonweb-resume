@@ -3,9 +3,7 @@ import './App.css'
 import { Code, Coffee, Zap, Brain, Rocket, Mail, Github, Linkedin, ExternalLink, Terminal, Server, Database, Cpu, Monitor, ChevronRight, FileText } from 'lucide-react'
 import ScrollObserver from './components/ScrollObserver'
 import AnimatedSection, { AnimatedItem } from './components/AnimatedSection'
-import { AnimatedTitle, AnimatedHeading, AnimatedParagraph } from './components/AnimatedText'
-import AnimatedIcon, { FloatingIcon, PulsingIcon } from './components/AnimatedIcon'
-import AnimatedCard, { AnimatedProject } from './components/AnimatedCard'
+import { AnimatedTitle } from './components/AnimatedText'
 import { motion } from 'framer-motion'
 import RainbowButton from './components/RainbowButton'
 import Marquee from './components/Marquee'
@@ -101,12 +99,28 @@ function App() {
         }
       ],
       projects: [
+      {
+        title: 'AI-Powered Code Analyzer',
+        description: 'A web app that provides instant AI-driven code analysis, identifying security vulnerabilities, performance bottlenecks, and quality improvements. Built with Next.js, React, and TypeScript, and deployed on Vercel.',
+        technologies: ['Next.js', 'React', 'TypeScript', 'OpenAI API', 'Vercel'],
+        githubLink: '#',
+        demoLink: 'https://code-analyzer-mu.vercel.app/',
+        status: 'Published'
+      },
         {
           title: 'Break Reminder Chrome Extension',
         description: 'A productivity extension that gamifies break reminders with jokes, quotes, and exercise tips. Built with React.js and Chrome APIs.',
         technologies: ['React.js', 'Chrome APIs', 'REST APIs'],
           githubLink: 'https://github.com/vinodonweb/break-reminder-extraction',
         demoLink: 'https://chromewebstore.google.com/detail/break-reminder/imkkaclpdmkjoebdceipiokgnehkollk',
+        status: 'Published'
+      },
+      {
+          title: 'Golden Year Website',
+        description: 'A visually stunning and user-friendly website built for a small business that helps elderly people adopt technology. Designed to be accessible, modern, and responsive.',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+          githubLink: '#',
+        demoLink: 'https://golden-year.vercel.app/',
         status: 'Published'
       },
       {
@@ -473,16 +487,19 @@ function App() {
                 </div>
                 
                 <div className="flex gap-3 pt-2">
-                  <motion.a
+                  {!project.githubLink.includes('#') && (
+                    <motion.a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-1 text-[#f5c842] hover:text-[#ffd700] code-font text-sm"
+                    className="flex items-center space-x-1 d-none text-[#f5c842] hover:text-[#ffd700] code-font text-sm"
                     whileHover={{ x: 3 }}
                   >
                     <Github className="w-4 h-4" />
                     <span>code</span>
                   </motion.a>
+                  )}
+                  
                   {!project.demoLink.includes('#') && (
                   <motion.a
                     href={project.demoLink}
