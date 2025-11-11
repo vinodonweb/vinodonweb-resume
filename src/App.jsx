@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
-import { Code, Coffee, Zap, Brain, Rocket, Mail, Github, Linkedin, ExternalLink, Terminal, Server, Database, Cpu, Monitor, ChevronRight, FileText } from 'lucide-react'
+import { Code, Coffee, Zap, Brain, Rocket, Mail, Github, Linkedin, ExternalLink, Terminal, Server, Database, Cpu, Monitor, ChevronRight, FileText, Calendar } from 'lucide-react'
 import ScrollObserver from './components/ScrollObserver'
 import AnimatedSection, { AnimatedItem } from './components/AnimatedSection'
 import { AnimatedTitle } from './components/AnimatedText'
@@ -14,6 +15,7 @@ import EasterEggs from './components/EasterEggs'
 import HintSystem from './components/HintSystem'
 
 function App() {
+  const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState('Software Engineer');
   const [terminalText, setTerminalText] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -259,16 +261,58 @@ function App() {
                     <div>role: "<span className="text-white">Full-Stack Developer</span>",</div>
                     <div>location: "<span className="text-white">Chicago, IL</span>",</div>
                     <div>passion: "<span className="text-white">Clean Code & Coffee</span>",</div>
-                    <div>currentFocus: "<span className="text-white">React & Node.js</span>"</div>
+                    <div>currentFocus: "<span className="text-white">React & Node.js</span>",</div>
+                    <div>status: "<span className="text-green-400">Open to Opportunities</span>"</div>
                   </div>
                   <div className="code-font text-lg text-[#f5c842]">{"}"}</div>
+                </motion.div>
+
+                {/* Open to Opportunities Section */}
+                <motion.div
+                  className="terminal p-6 neon-border"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold mb-2 code-font">
+                        <span className="text-green-400">// </span>Currently Seeking Opportunities
+                      </h3>
+                      <p className="text-gray-300 text-sm mb-4">
+                        I'm actively looking for full-time Software Engineering roles where I can contribute to 
+                        impactful projects, work with talented teams, and continue growing as a developer.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-green-400/10 text-green-400 rounded text-xs code-font border border-green-400/30">
+                          Full-Time
+                        </span>
+                        <span className="px-3 py-1 bg-[#f5c842]/10 text-[#f5c842] rounded text-xs code-font border border-[#f5c842]/30">
+                          Remote/Hybrid
+                        </span>
+                        <span className="px-3 py-1 bg-blue-400/10 text-blue-400 rounded text-xs code-font border border-blue-400/30">
+                          Available Immediately
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => navigate('/30call')}
+                        className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 code-font text-sm shadow-lg hover:shadow-green-500/50"
+                      >
+                        <Calendar className="w-4 h-4" />
+                        <span>Schedule a Call - Let's Talk!</span>
+                      </button>
+                    </div>
+                  </div>
                 </motion.div>
 
             <motion.div
                   className="flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
             >
               <RainbowButton
                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
