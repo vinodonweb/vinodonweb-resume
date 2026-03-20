@@ -1,27 +1,14 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
-const RainbowButton = ({ 
-  children, 
-  onClick, 
-  className = '',
-  disabled = false,
-  type = 'button',
-  ...props 
-}) => {
+export default function PrimaryButton({ children, onClick, className = '', outline = false }) {
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`relative px-6 py-3 rounded-md rainbow-button bg-[#f5c842] dark:bg-transparent border border-[#f5c842] hover:bg-[#ffd700] dark:hover:bg-[#f5c842]/20 transition-colors font-medium ${className}`}
       onClick={onClick}
-      disabled={disabled}
-      type={type}
-      {...props}
+      className={`${outline ? 'btn-outline' : 'btn-primary'} ${className}`}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
     >
       {children}
     </motion.button>
   );
-};
-
-export default RainbowButton; 
+}
