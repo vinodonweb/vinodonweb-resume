@@ -21,19 +21,20 @@ const SKILLS_MARQUEE = [
 ]
 
 const EXPERIENCES = [
-  {
-    title: 'Software Engineer',
-    company: 'Bank of America',
+   {
+    title: 'Volunteer Software Engineer',
+    company: 'EarthHero',
     period: 'Aug 2025 – Present',
-    type: 'Full-Time',
-    dotColor: '#a5d6ff',
+    type: 'Volunteer',
+    dotColor: '#d29922',
     description: [
-      'Shipped React/TypeScript features for a consumer-facing platform serving 57M+ active users, reducing UI rendering time by 20%',
-      'Built and maintained 5+ Java/Spring Boot microservices handling 200K+ daily API requests secured with OAuth 2.0, RBAC, and OWASP standards at 99.9% uptime',
-      'Right-sized AWS infrastructure (EC2, S3, Lambda) eliminating bottlenecks causing 25% slowdowns during peak load',
-      'Automated 3 manual workflows in Python saving ~35% operational overhead per sprint',
+      'Contributing to the EarthHero web platform (Next.js, React, Firebase) — a climate action nonprofit used across 150+ countries',
+      'Helped migrate the codebase from the Next.js pages router to the app router, improving rendering performance',
+      'Shipped localized emissions units (metric/imperial by country) and a "Not For Me" dismissal flow from the issue tracker',
+      'Tightened Firebase security rules to harden read/write access on user data',
     ],
-    technologies: ['Java', 'Spring Boot', 'React', 'TypeScript', 'Python', 'AWS', 'OAuth 2.0'],
+    technologies: ['Next.js', 'React', 'Node.js', 'Firebase'],
+    link: 'https://www.earthhero.org/',
   },
   {
     title: 'Software Engineer',
@@ -49,20 +50,19 @@ const EXPERIENCES = [
     ],
     technologies: ['Node.js', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Docker', 'GitHub Actions', 'Nginx'],
   },
-  {
-    title: 'Software Engineer',
-    company: 'Fidelity Investments',
-    period: 'Jan 2022 – Jun 2023',
+   {
+    title: 'Junior Software Engineer',
+    company: 'Techsyspro Infosolutions',
+    period: 'Jan 2022 – Jul 2023',
     type: 'Full-Time',
-    dotColor: '#d2a8ff',
+    dotColor: '#58a6ff',
     description: [
-      'Wrote and maintained 8+ Java/Spring Boot APIs processing 100K+ daily events across 3 internal platforms at 99.9% uptime',
-      'Shipped internal tooling cutting page load time by 20% for 3 teams',
-      'Tuned SQL schemas and AWS RDS queries, reducing data retrieval by 35% on highest-volume reporting jobs',
-      'Migrated CI/CD to Jenkins + Docker/Kubernetes, shrinking release cycle from 2 days → 3 hours',
+      'Built REST APIs with Node.js/Express and Java Spring Boot supporting internal application workflows',
+      'Designed and optimized PostgreSQL schemas and queries for core data access patterns',
+      'Maintained production services on AWS (EC2, S3, RDS) in an Agile/Scrum environment',
     ],
-    technologies: ['Java', 'Spring Boot', 'TypeScript', 'Python', 'AWS', 'Docker', 'Kubernetes', 'Jenkins'],
-  },
+    technologies: ['Node.js', 'Express', 'Java', 'Spring Boot', 'PostgreSQL', 'AWS'],
+  }
 ]
 
 const PROJECTS = [
@@ -82,6 +82,15 @@ const PROJECTS = [
       '> generating personalized email        ✓',
       '> SmartReached pipeline complete  🚀',
     ],
+  },
+  {
+    title: 'VectorDB',
+    description: 'Vector database built from scratch in Python with three swappable search backends (HNSW, KD-Tree, brute force). Includes a full RAG pipeline — Ollama embeds queries, HNSW retrieves top-k chunks, and llama3.2 generates grounded answers. Ships with a REST API and a live 2D PCA scatter plot showing semantic clusters forming in real time.',
+    technologies: ['Python', 'HNSW', 'RAG', 'Ollama', 'REST API'],
+    demoLink: null,
+    githubLink: 'https://github.com/vinodonweb/Your-OWN-AI',
+    status: 'Open Source',
+    featured: false,
   },
   {
     title: 'AI Code Analyzer',
@@ -168,8 +177,10 @@ function SectionLabel({ children }) {
 
 function StatusBadge({ status }) {
   const isLive = status === 'Live'
+  const isOpenSource = status === 'Open Source'
   return (
-    <span className={isLive ? 'badge-live' : 'badge-live badge-published'}>
+    <span className={isLive ? 'badge-live' : 'badge-live badge-published'}
+      style={isOpenSource ? { color: '#58a6ff', borderColor: 'rgba(88,166,255,0.3)' } : {}}>
       {isLive && <span className="status-dot" style={{ width: 5, height: 5, animation: 'none', boxShadow: 'none' }} />}
       {status}
     </span>
@@ -342,7 +353,6 @@ export default function App() {
                   <div className="status-dot" />
                   <span className="code-font text-xs" style={{ color: 'var(--green)' }}>open to work</span>
                 </div>
-                <span className="glass-badge">@ Bank of America</span>
                 <span className="glass-badge">Chicago, IL</span>
                 <span className="glass-badge">3+ yrs</span>
               </motion.div>
@@ -354,10 +364,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                Software engineer building large-scale distributed systems at{' '}
-                <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Bank of America</span> and{' '}
-                <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Fidelity Investments</span>.
-                Specializing in Java/Spring Boot microservices, React/TypeScript frontends, and AI-powered products with LangChain.
+                Software engineer specializing in Java/Spring Boot microservices, React/TypeScript frontends, and AI-powered products with LangChain.
               </motion.p>
 
               {/* CTAs */}
@@ -423,8 +430,8 @@ export default function App() {
                     <span className="syntax-string">"Software Engineer"</span>,
                   </div>
                   <div style={{ marginLeft: '1.5rem' }}>
-                    <span className="syntax-property">company</span>:{' '}
-                    <span className="syntax-string">"Bank of America"</span>,
+                    <span className="syntax-property">location</span>:{' '}
+                    <span className="syntax-string">"Chicago, IL"</span>,
                   </div>
                   <div style={{ marginLeft: '1.5rem' }}>
                     <span className="syntax-property">stack</span>: [
@@ -443,7 +450,7 @@ export default function App() {
                   </div>
                   <div>{'}'}</div>
                   <div style={{ marginTop: '0.6rem' }}>
-                    <span className="syntax-comment">// 57M+ users served @ BofA</span>
+                    <span className="syntax-comment">// 57M+ users served</span>
                   </div>
                   <div>
                     <span className="syntax-comment">// 200K+ daily API requests · 99.9% uptime</span>
@@ -544,7 +551,15 @@ export default function App() {
                   <div>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.2rem' }}>{exp.title}</h3>
                     <div className="flex items-center gap-2">
-                      <span style={{ color: exp.dotColor, fontWeight: 600, fontSize: '0.9rem' }}>{exp.company}</span>
+                      {exp.link ? (
+                        <a href={exp.link} target="_blank" rel="noopener noreferrer"
+                          style={{ color: exp.dotColor, fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none' }}
+                          onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+                          onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+                        >{exp.company} ↗</a>
+                      ) : (
+                        <span style={{ color: exp.dotColor, fontWeight: 600, fontSize: '0.9rem' }}>{exp.company}</span>
+                      )}
                       <span className="glass-badge" style={{ fontSize: '0.65rem', padding: '0.1rem 0.5rem' }}>{exp.type}</span>
                     </div>
                   </div>
